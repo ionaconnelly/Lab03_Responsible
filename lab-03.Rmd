@@ -85,7 +85,7 @@ jan_feb_flights <- jan_feb_flights %>%
 
 ```{r}
 # is there a difference in wind speed when wind_gust is missing vs not missing?
-
+#Yes, the wind speed is higher when wind_gust is present
 
 
 ```
@@ -99,7 +99,10 @@ _Your answer here_
 
 # create a new variable, gust_present
 jan_feb_flights <- jan_feb_flights %>%
-  mutate(gust_present = _______________)
+  mutate(gust_present = case_when(
+    is.na(wind_gust) == TRUE ~ "FALSE",
+    TRUE ~ "TRUE"
+      ))
 ```
 
 
